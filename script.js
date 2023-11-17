@@ -24,7 +24,6 @@ class Graph {
                         // Update the residual graph
                         edge.w -= flow;
                         for (const reverseEdge of this.adjacencyList[edge.v]) {
-                            console.log(reverseEdge);
                             if (reverseEdge.v === node) {
                                 reverseEdge.w += flow;
                                 break;
@@ -44,7 +43,6 @@ class Graph {
         do {
             visited.fill(false);
             flow = dfs(source, Number.MAX_SAFE_INTEGER);
-            console.log('flow',flow)
             maxFlow += flow;
         } while (flow > 0);
 
@@ -75,7 +73,7 @@ function solveMaxFlow(input) {
 }
 
 // Example usage
-const input = [
+const input1 = [
     [2, 1],
     [1, 2, 2768],
     [2],
@@ -107,5 +105,25 @@ const input3 = [
     [1, 5]
 ]
 
-const results = solveMaxFlow(input3);
-console.log(results);
+const input4 = [
+    [5, 4],
+    [1, 3, 2653],
+    [4, 1, 322],
+    [5, 1, 8657],
+    [2, 4, 4896],
+    [5],
+    [4, 2],
+    [2, 5],
+    [2, 5],
+    [1, 3],
+    [4, 5]
+]
+
+const results1 = solveMaxFlow(input1);
+const results2 = solveMaxFlow(input2);
+const results3 = solveMaxFlow(input3);
+const results4 = solveMaxFlow(input4);
+console.log(results1);
+console.log(results2);
+console.log(results3);
+console.log(results4);
